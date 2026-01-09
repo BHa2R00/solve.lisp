@@ -83,6 +83,7 @@
   (format t "digest ~A~%" uri)
   (with-fp-w+
 	(f "solve.sh")
+  (format f "echo -e \"\\033]0;~A\\007\"~%" uri)
 	(let ((h (with-output-to-string (s) (exec s "curl" uri)))
 		  (record nil))
 	  (with-input-from-string (s h)
